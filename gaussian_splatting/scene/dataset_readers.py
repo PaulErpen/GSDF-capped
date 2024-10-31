@@ -434,7 +434,7 @@ def readNerfSyntheticInfo(path, white_background, eval, extension=".png"):
                            nerf_normalization=nerf_normalization,
                            ply_path=ply_path,
                            center=nerf_normalization["translate"],
-                           scale=nerf_normalization["scale"])
+                           scale=nerf_normalization["radius"])
     return scene_info
 
 sceneLoadTypeCallbacks = {

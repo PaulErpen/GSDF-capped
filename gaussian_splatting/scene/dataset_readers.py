@@ -337,7 +337,7 @@ def readCamerasFromTransforms(path, transformsfile, white_background, extension=
 
             # NeRF 'transform_matrix' is a camera-to-world transform
             c2w = np.array(frame["transform_matrix"])
-            c2w = np.concatenate((c2w,np.array([[0,0,0,1]])),axis=0)
+            # c2w = np.concatenate((c2w,np.array([[0,0,0,1]])),axis=0)
             # import pdb;pdb.set_trace()
 
 

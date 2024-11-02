@@ -380,7 +380,7 @@ class NeuSSystem(BaseSystem):
 
     # Training step for both Scaffold-GS and Instant-nsr
     def training_step(self, batch, batch_idx):
-        self.preprocess_data(batch, "train")
+        #self.preprocess_data(batch, "train")
 
         random_background = torch.rand(3).cuda()
         datasetname=self.args.source_path.split('/')[-1]

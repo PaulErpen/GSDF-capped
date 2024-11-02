@@ -347,9 +347,8 @@ def readCamerasFromTransforms(path, transformsfile, white_background, extension=
             if idx == len(frames) - 1:
                 progress_bar.close()
 
-            if not (c2w[:2,3].max() < SCALE and c2w[:2,3].min() > -SCALE):
-                continue
-                
+            # if not (c2w[:2,3].max() < SCALE and c2w[:2,3].min() > -SCALE):
+            #     continue
 
             ct += 1
 

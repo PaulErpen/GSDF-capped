@@ -706,7 +706,8 @@ class NeuSSystem(BaseSystem):
         pass
     """
     
-    def validation_epoch_end(self, out):
+    def on_validation_epoch_end(self):
+        out = self.validation_step_outputs
         out = self.all_gather(out)
         if self.trainer.is_global_zero:
             out_set = {}

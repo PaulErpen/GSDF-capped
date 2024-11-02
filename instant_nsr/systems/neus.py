@@ -380,8 +380,6 @@ class NeuSSystem(BaseSystem):
 
     # Training step for both Scaffold-GS and Instant-nsr
     def training_step(self, batch, batch_idx):
-        #self.preprocess_data(batch, "train")
-
         random_background = torch.rand(3).cuda()
         datasetname=self.args.source_path.split('/')[-1]
         time1=time.time()
@@ -410,10 +408,6 @@ class NeuSSystem(BaseSystem):
             self.gaussians.update_learning_rate(current_epoch_gs)
 
             # Get the same image index as Instant-nsr
-            print(f"\nNumber of train cameras: {len(self.scene.getTrainCameras())}")
-            print(f"\nAll train camera scales: {len(self.scene.train_cameras.keys())}")
-            print(f"\nbatch keys: {batch.keys()}")
-            print(f"\nused_index: {batch['used_index']}")
             viewpoint_cam = self.scene.getTrainCameras()[batch['used_index']]
 
             # Get the same pixel indexes as Instant-nsr

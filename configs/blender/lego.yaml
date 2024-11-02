@@ -13,6 +13,9 @@ dataset:
   load_data_on_gpu: true
   neuralangelo_scale: 0
   neuralangelo_center: [0,0,0]
+  train_split: train
+  val_split: val
+  test_split: test
 model:
   name: neus
   radius: 2.5

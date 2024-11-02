@@ -410,6 +410,9 @@ class NeuSSystem(BaseSystem):
             self.gaussians.update_learning_rate(current_epoch_gs)
 
             # Get the same image index as Instant-nsr
+            print(f"\nNumber of train cameras: {len(self.scene.getTrainCameras())}")
+            print(f"\nAll train camera scales: {len(self.scene.train_cameras.keys())}")
+            print(f"\nused_index: {batch['used_index']}")
             viewpoint_cam = self.scene.getTrainCameras()[batch['used_index']]
 
             # Get the same pixel indexes as Instant-nsr

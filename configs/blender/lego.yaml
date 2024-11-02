@@ -16,6 +16,8 @@ dataset:
   train_split: train
   val_split: val
   test_split: test
+  near_plane: 0.01
+  far_plane: 100.0
 model:
   name: neus
   radius: 2.5

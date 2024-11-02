@@ -155,8 +155,7 @@ class NeRFSystem(BaseSystem):
         pass
     """
     
-    def on_validation_epoch_end(self):
-        out = self.validation_step_outputs
+    def validation_epoch_end(self, out):
         out = self.all_gather(out)
         if self.trainer.is_global_zero:
             out_set = {}

@@ -121,7 +121,7 @@ class BaseSystem(pl.LightningModule, SaverMixin):
         pass
     """
     
-    def validation_epoch_end(self, out):
+    def on_validation_epoch_end(self):
         """
         Gather metrics from all devices, compute mean.
         Purge repeated results using data index.

@@ -370,10 +370,11 @@ class NeuSSystem(BaseSystem):
                         self.gaussians.optimizer.step()
                         self.gaussians.optimizer.zero_grad(set_to_none = True)
 
-                    #if (iteration in self.args.checkpoint_iterations):
-                    #    # if 'debug' not in scene.model_path:
-                    #    self.loggger.info("\n[ITER {}] Saving Checkpoint".format(iteration))
-                    #    torch.save((self.gaussians.capture(), iteration), self.scene.model_path + "/chkpnt" + str(iteration) + ".pth")
+                    if (iteration in self.args.checkpoint_iterations):
+                        # if 'debug' not in scene.model_path:
+                        self.loggger.info("\n[ITER {}] Saving Checkpoint".format(iteration))
+                        torch.save((self.gaussians.capture(), iteration), self.scene.model_path + "/chkpnt" + str(iteration) + ".pth")
+                        self.gaussians.save_ply(self.scene.model_path + "/chkpnt" + str(iteration) + ".ply")
     
     # vector similarity
     def cos_similarity_loss(self, a, b):

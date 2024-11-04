@@ -152,7 +152,7 @@ def main():
     else:
         strategy = 'ddp_find_unused_parameters_false'
 
-    config.trainer.max_steps = config.iterations - config.pretrain_step # number of joint model calls
+    config.trainer.max_steps = extras.iterations - extras.pretrain_step # number of joint model calls
     
     trainer = Trainer(
         devices=n_gpus,

@@ -124,10 +124,10 @@ def main():
     callbacks = []
     if args.train:
         callbacks += [
-            ModelCheckpoint(
-                dirpath=config.ckpt_dir,
-                **config.checkpoint
-            ),
+            #ModelCheckpoint(
+            #    dirpath=config.ckpt_dir,
+            #    **config.checkpoint
+            #),
             LearningRateMonitor(logging_interval='step'),
             # CodeSnapshotCallback(
             #     config.code_dir, use_version=False

@@ -74,6 +74,8 @@ def main():
     parser.add_argument('--exp_dir', default='./exp')
     parser.add_argument('--runs_dir', default='./runs')
     parser.add_argument('--verbose', action='store_true', help='if true, set logging level to DEBUG')
+    parser.add_argument('--iterations', type=int, default=0)
+    parser.add_argument('--pretrain_step', type=int, default=0)
 
     args, extras = parser.parse_known_args()
 
@@ -152,7 +154,7 @@ def main():
     else:
         strategy = 'ddp_find_unused_parameters_false'
 
-    config.trainer.max_steps = extras.iterations - extras.pretrain_step # number of joint model calls
+    config.trainer.max_steps = args.iterations - args.pretrain_step # number of joint model calls
     
     trainer = Trainer(
         devices=n_gpus,

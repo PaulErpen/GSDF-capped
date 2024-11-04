@@ -373,8 +373,8 @@ class NeuSSystem(BaseSystem):
                     if (iteration in self.args.checkpoint_iterations):
                         # if 'debug' not in scene.model_path:
                         self.loggger.info("\n[ITER {}] Saving Checkpoint".format(iteration))
-                        # torch.save((self.gaussians.capture(), iteration), self.scene.model_path + "/chkpnt" + str(iteration) + ".pth")
-                        self.gaussians.save_ply(self.scene.model_path + "/chkpnt" + str(iteration) + ".ply")
+                        # torch.save((self.gaussians.capture(), iteration), self.config.ckpt_dir + "/chkpnt" + str(iteration) + ".pth")
+                        self.gaussians.save_ply(self.config.ckpt_dir + "/chkpnt" + str(iteration) + ".ply")
     
     # vector similarity
     def cos_similarity_loss(self, a, b):
@@ -662,8 +662,8 @@ class NeuSSystem(BaseSystem):
 
                     if (current_epoch_gs in self.args.checkpoint_iterations):
                         self.loggger.info("\n[ITER {}] Saving Checkpoint".format(current_epoch_gs))
-                        # torch.save((self.gaussians.capture(), current_epoch_gs), self.scene.model_path + "/chkpnt" + str(current_epoch_gs) + ".pth")
-                        self.gaussians.save_ply(self.scene.model_path + "/chkpnt" + str(current_epoch_gs) + ".ply")
+                        # torch.save((self.gaussians.capture(), current_epoch_gs), self.config.ckpt_dir + "/chkpnt" + str(current_epoch_gs) + ".pth")
+                        self.gaussians.save_ply(self.config.ckpt_dir + "/chkpnt" + str(current_epoch_gs) + ".ply")
                     time45=time.time()
                     time_45=time45-time44
                     self.tb_writer.add_scalar(f'{datasetname}'+'/time_45', time_45, self.current_epoch_set)

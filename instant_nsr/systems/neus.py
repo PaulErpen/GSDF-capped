@@ -658,6 +658,7 @@ class NeuSSystem(BaseSystem):
                     if (current_epoch_gs in self.args.checkpoint_iterations):
                         self.loggger.info("\n[ITER {}] Saving Checkpoint".format(current_epoch_gs))
                         torch.save((self.gaussians.capture(), current_epoch_gs), self.scene.model_path + "/chkpnt" + str(current_epoch_gs) + ".pth")
+                        self.gaussians.save_ply(self.scene.model_path + "/chkpnt" + str(current_epoch_gs) + ".ply")
                     time45=time.time()
                     time_45=time45-time44
                     self.tb_writer.add_scalar(f'{datasetname}'+'/time_45', time_45, self.current_epoch_set)

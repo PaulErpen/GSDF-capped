@@ -446,6 +446,7 @@ class NeuSSystem(BaseSystem):
 
         # If all the sampled pixels are belong to background, skiping this training iteration. 
         if out['zero_samples']==True:
+            print(f"Skipping iteration {self.current_epoch_set}, no samples")
             return None
         
         # loss of Instant-NSR

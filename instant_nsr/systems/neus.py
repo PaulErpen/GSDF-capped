@@ -373,7 +373,7 @@ class NeuSSystem(BaseSystem):
                     if (iteration in self.args.checkpoint_iterations):
                         # if 'debug' not in scene.model_path:
                         self.loggger.info("\n[ITER {}] Saving Checkpoint".format(iteration))
-                        torch.save((self.gaussians.capture(), iteration), self.scene.model_path + "/chkpnt" + str(iteration) + ".pth")
+                        # torch.save((self.gaussians.capture(), iteration), self.scene.model_path + "/chkpnt" + str(iteration) + ".pth")
                         self.gaussians.save_ply(self.scene.model_path + "/chkpnt" + str(iteration) + ".ply")
     
     # vector similarity
@@ -662,7 +662,7 @@ class NeuSSystem(BaseSystem):
 
                     if (current_epoch_gs in self.args.checkpoint_iterations):
                         self.loggger.info("\n[ITER {}] Saving Checkpoint".format(current_epoch_gs))
-                        torch.save((self.gaussians.capture(), current_epoch_gs), self.scene.model_path + "/chkpnt" + str(current_epoch_gs) + ".pth")
+                        # torch.save((self.gaussians.capture(), current_epoch_gs), self.scene.model_path + "/chkpnt" + str(current_epoch_gs) + ".pth")
                         self.gaussians.save_ply(self.scene.model_path + "/chkpnt" + str(current_epoch_gs) + ".ply")
                     time45=time.time()
                     time_45=time45-time44

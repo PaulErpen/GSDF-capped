@@ -381,7 +381,6 @@ class NeuSSystem(BaseSystem):
 
     # Training step for both Scaffold-GS and Instant-nsr
     def training_step(self, batch, batch_idx):
-        print("Training loop sanity check!")
         random_background = torch.rand(3).cuda()
         datasetname=self.args.source_path.split('/')[-1]
         time1=time.time()
@@ -521,7 +520,8 @@ class NeuSSystem(BaseSystem):
 
         # Calculate the loss of Scaffold-GS
         if self.config.model.if_gaussian:
-            print(f"Gaussian iter: {current_epoch_gs}")
+            print(f"Gaussian Epoch {current_epoch_gs}")
+            print(f"Total iterations {self.op.iterations}")
             if current_epoch_gs <= self.op.iterations:
                 gt_image = viewpoint_cam.original_image.cuda()
 

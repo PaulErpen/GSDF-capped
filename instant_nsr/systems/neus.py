@@ -520,6 +520,7 @@ class NeuSSystem(BaseSystem):
 
         # Calculate the loss of Scaffold-GS
         if self.config.model.if_gaussian:
+            print(f"Gaussian iter: {current_epoch_gs}")
             if current_epoch_gs <= self.op.iterations:
                 gt_image = viewpoint_cam.original_image.cuda()
 

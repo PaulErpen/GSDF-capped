@@ -151,6 +151,8 @@ def main():
         assert n_gpus == 1
     else:
         strategy = 'ddp_find_unused_parameters_false'
+
+    config.trainer.max_steps = args.iterations - args.pretrain_step # number of joint model calls
     
     trainer = Trainer(
         devices=n_gpus,
